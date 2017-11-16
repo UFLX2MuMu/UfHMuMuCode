@@ -42,8 +42,10 @@ process.load("Configuration.Geometry.GeometryIdeal_cff")
 # Get a sample from our collection of samples
 # /////////////////////////////////////////////////////////////
 
-from python.Samples_Moriond17 import SingleMu_2016C as samp
+
+from python.Samples_Moriond17 import DYJets_Summer17 as samp
 # from python.Samples_Moriond17 import H2Mu_gg as samp
+# from python.Samples_Moriond17 import SingleMu_2016C as samp
 # from python.Samples_Moriond17 import ZJets_AMC as samp
 # from python.Samples_Moriond17 import ZJets_MG_HT_2500_inf as samp
 
@@ -97,7 +99,7 @@ process.GlobalTag.globaltag = samp.GT
 # /////////////////////////////////////////////////////////////
 readFiles = cms.untracked.vstring();
 # Get list of files from the sample we loaded
-readFiles.extend(samp.files);
+#readFiles.extend(samp.files);
 
 # readFiles.extend(['file:dy_jetsToLL.root']);
 
@@ -106,8 +108,12 @@ readFiles.extend(samp.files);
 # ## From /GluGlu_HToMuMu_M125_13TeV_powheg_pythia8/RunIISpring16MiniAODv2-PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/MINIAODSIM
 # readFiles.extend(['/store/user/abrinke1/HiggsToMuMu/samples/GluGlu_HToMuMu_M125_13TeV_powheg_pythia8/PUSpring16RAWAODSIM_reHLT_80X_mcRun2_asymptotic_v14-v1/12B931FE-CD3A-E611-9844-0025905C3D98.root'])
 
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(10000) )
-process.MessageLogger.cerr.FwkReport.reportEvery = 100
+#readFiles.extend(['root://cms-xrd-global.cern.ch//store/mc/RunIISummer17MiniAOD/DYToLL_M_1_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/NZSFlatPU28to62_92X_upgrade2017_realistic_v10-v1/00000/02FF7F25-D5B9-E711-98E5-003048FFD72C.root'])
+
+readFiles.extend(['/store/mc/RunIISummer17MiniAOD/DYJetsToLL_M-1to10_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/MINIAODSIM/NZSFlatPU28to62_92X_upgrade2017_realistic_v10-v1/150000/0C47901E-B8AC-E711-B06F-0025905A48BC.root'])
+
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(10) )
+process.MessageLogger.cerr.FwkReport.reportEvery = 1
 process.source = cms.Source("PoolSource",fileNames = readFiles)
 process.options   = cms.untracked.PSet( wantSummary = cms.untracked.bool(False) )
 process.source.lumisToProcess = cms.untracked.VLuminosityBlockRange()
@@ -123,7 +129,7 @@ if samp.isData:
 # Save output with TFileService
 # /////////////////////////////////////////////////////////////
 
-process.TFileService = cms.Service("TFileService", fileName = cms.string("SingleMu_2016C_test.root") )
+process.TFileService = cms.Service("TFileService", fileName = cms.string("DYJet_Summer17_test.root") )
 # process.TFileService = cms.Service("TFileService", fileName = cms.string("GluGlu_HToMuMu_M125_GEN_test.root") )
 # process.TFileService = cms.Service("TFileService", fileName = cms.string("ZJets_AMC_GEN_Roch_test.root") )
 # process.TFileService = cms.Service("TFileService", fileName = cms.string("ZJets_MG_HT_2500_inf_test_100.root") )

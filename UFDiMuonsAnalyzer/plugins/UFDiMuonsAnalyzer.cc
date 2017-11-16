@@ -28,7 +28,8 @@ UFDiMuonsAnalyzer::UFDiMuonsAnalyzer(const edm::ParameterSet& iConfig):
   _trigNames    = iConfig.getParameter<std::vector<std::string>>("trigNames");
 
   _trigResultsToken = consumes<edm::TriggerResults>                    (iConfig.getParameter<edm::InputTag>("trigResults"));
-  _trigObjsToken    = consumes<pat::TriggerObjectStandAloneCollection> (iConfig.getParameter<edm::InputTag>("trigObjs"));
+  // _trigObjsToken    = consumes<pat::TriggerObjectStandAloneCollection> (iConfig.getParameter<edm::InputTag>("trigObjs"));
+  _trigObjsToken    = consumes<pat::TriggerObjectStandAloneCollection> (edm::InputTag("slimmedPatTrigger","","PAT"));
 
   // Event flags
   _evtFlagsToken = consumes<edm::TriggerResults>( edm::InputTag("TriggerResults","","PAT") );

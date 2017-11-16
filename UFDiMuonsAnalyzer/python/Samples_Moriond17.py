@@ -1,6 +1,6 @@
 
 class sample:
-    def __init__(self, name='', DAS='', nEvt=0, files=[], GT='80X_mcRun2_asymptotic_2016_TrancheIV_v8', 
+    def __init__(self, name='', DAS='', nEvt=0, files=[], GT='92X_upgrade2017_realistic_v7', 
                  JEC='Summer16_23Sep2016V4_MC', runs=[], JSON=[], isData=False):
         self.name   = name   ## User-assigned dataset name
         self.DAS    = DAS    ## DAS directory
@@ -116,6 +116,18 @@ SingleMu_2016H_2 = sample( name   = 'SingleMu_2016H_2',
                            JSON   = JSON_2016[0],
                            isData = True)
 
+
+#SingleMu_2017A_1 = sample( name   = 'SingleMu_2017A_1',
+#                           DAS    = '/SingleMuon/Run2016H-03Feb2017_ver3-v1/MINIAOD',
+#                           GT     = '80X_dataRun2_Prompt_v16',
+#                           JEC    = 'Summer16_23Sep2016HV4_DATA',
+#                           JSON   = JSON_2016[0],
+#                           isData = True)
+#
+
+
+
+
 SingleMu = []  ## All SingleMuon datasets
 
 SingleMu.append(SingleMu_2016B)
@@ -161,7 +173,7 @@ H2Mu_VBF_120 = sample( name = 'H2Mu_VBF_120',
                        DAS  = '/VBF_HToMuMu_M120_13TeV_powheg_pythia8/'+DAS_era_sig,
                        nEvt = 249200 ) ## 250 k
 
-H2Mu_VBF_120 = sample( name = 'H2Mu_VBF_130',
+H2Mu_VBF_130 = sample( name = 'H2Mu_VBF_130',
                        DAS  = '/VBF_HToMuMu_M130_13TeV_powheg_pythia8/'+DAS_era_sig,
                        nEvt = 249200 ) ## 250 k
 
@@ -208,6 +220,8 @@ H2Mu_ZH_130 = sample( name = 'H2Mu_ZH_130',
 # H2Mu_ttH = sample( name = 'H2Mu_ttH',
 #                    DAS  = '',
 #                    nEvt = )
+
+
 
 Signal = []  ## All H2Mu signal samples
 Signal.append(H2Mu_gg)
@@ -310,6 +324,13 @@ ZJets_MG_HT_2500_inf = sample( name = 'ZJets_MG_HT_2500_inf',
                                nEvt = 999,
                                files = [ AWB_dir+ZJets_MG_HT_2500_inf_dir+'308C289B-B8C0-E611-A7C6-0025905A606A.root' ],
                                )
+
+DYJets_Summer17 = sample ( DAS = '/DYToLL_M_1_TuneCUETP8M1_13TeV_pythia8/RunIISummer17MiniAOD-NZSFlatPU28to62_92X_upgrade2017_realistic_v10-v1/MINIAODSIM',
+                           name = 'DYJets_Summer17_test',
+                           nEvt = 100,
+                           files = ['/store/mc/RunIISummer17MiniAOD/DYJetsToLL_M-1to10_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/MINIAODSIM/NZSFlatPU28to62_92X_upgrade2017_realistic_v10-v1/150000/0C47901E-B8AC-E711-B06F-0025905A48BC.root']
+                           #files = ['/store/mc/RunIISummer17MiniAOD/DYToLL_M_1_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/NZSFlatPU28to62_92X_upgrade2017_realistic_v10-v1/00000/02FF7F25-D5B3-E711-98E5-003048FFD72C.root'],
+                           )
 
 Background.append(ZJets_MG)
 # Background.append(ZJets_MG_HER)
