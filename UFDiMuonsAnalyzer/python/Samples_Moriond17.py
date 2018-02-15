@@ -25,6 +25,7 @@ JSON_2016 = ['data/JSON/Cert_271036-284044_13TeV_23Sep2016ReReco_Collisions16_JS
              'data/JSON/Cert_271036-284044_13TeV_PromptReco_Collisions16_JSON.txt']      ## 36.773 fb-1
 
 AWB_dir = '/store/user/abrinke1/HiggsToMuMu/samples/'
+PB_wdir = '/afs/cern.ch/work/b/bortigno/hmm_924_ufl/src/UfHMuMuCode/UFDiMuonsAnalyzer/'
 
 #####################################
 ###  Global tag and dataset info  ###
@@ -116,6 +117,18 @@ SingleMu_2016H_2 = sample( name   = 'SingleMu_2016H_2',
                            JSON   = JSON_2016[0],
                            isData = True)
 
+
+#SingleMu_2017A_1 = sample( name   = 'SingleMu_2017A_1',
+#                           DAS    = '/SingleMuon/Run2016H-03Feb2017_ver3-v1/MINIAOD',
+#                           GT     = '80X_dataRun2_Prompt_v16',
+#                           JEC    = 'Summer16_23Sep2016HV4_DATA',
+#                           JSON   = JSON_2016[0],
+#                           isData = True)
+#
+
+
+
+
 SingleMu = []  ## All SingleMuon datasets
 
 SingleMu.append(SingleMu_2016B)
@@ -135,6 +148,13 @@ SingleMu.append(SingleMu_2016H_2)
 ## DAS location: dataset=/*HToMuMu_M125_13TeV*/*Moriond*/MINIAODSIM
 DAS_era_sig = 'RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM'
 H2Mu_gg_dir = 'GluGlu_HToMuMu_M125_13TeV_powheg_pythia8/PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/'
+
+#Dark Photon
+ZdToMuMu_M20_eps0p02_eta2p6 = sample( name  = 'Zd2Mu_20',
+                                      DAS   = '/DarkPhoton/avartak-ZdToMuMu-M20-eps0p02-etal2p6_SCOUT-d069282eca76b6fde70ab5192475fd6a/USER',
+                                      nEvt  = 250000,
+                                      files = [ PB_wdir + 'Zd2Mu_M20_test.root',
+                                      '/store/user/avartak/DarkPhoton/ZdToMuMu-M20-eps0p02-etal2p6_SCOUT/170901_214525/0000/genscout_1.root' ])
 
 ## Gluon-gluon fusion
 H2Mu_gg = sample( name  = 'H2Mu_gg',
@@ -161,7 +181,7 @@ H2Mu_VBF_120 = sample( name = 'H2Mu_VBF_120',
                        DAS  = '/VBF_HToMuMu_M120_13TeV_powheg_pythia8/'+DAS_era_sig,
                        nEvt = 249200 ) ## 250 k
 
-H2Mu_VBF_120 = sample( name = 'H2Mu_VBF_130',
+H2Mu_VBF_130 = sample( name = 'H2Mu_VBF_130',
                        DAS  = '/VBF_HToMuMu_M130_13TeV_powheg_pythia8/'+DAS_era_sig,
                        nEvt = 249200 ) ## 250 k
 
@@ -197,17 +217,26 @@ H2Mu_ZH = sample( name = 'H2Mu_ZH',
                   nEvt = 249748 ) ## 250 k
 
 H2Mu_ZH_120 = sample( name = 'H2Mu_ZH_120',
-                  DAS  = '/ZH_HToMuMu_M125_13TeV_powheg_pythia8/'+DAS_era_sig,
+                  DAS  = '/ZH_HToMuMu_M120_13TeV_powheg_pythia8/'+DAS_era_sig,
                   nEvt = 249748 ) ## 250 k
 
 H2Mu_ZH_130 = sample( name = 'H2Mu_ZH_130',
-                      DAS  = '/ZH_HToMuMu_M125_13TeV_powheg_pythia8/'+DAS_era_sig,
+                      DAS  = '/ZH_HToMuMu_M130_13TeV_powheg_pythia8/'+DAS_era_sig,
                       nEvt = 249748 ) ## 250 k
+
+
+Zd150 = sample( name = 'Zd150',
+                      DAS  = '/DarkPhoton/avartak-ZdToMuMu-M150-eps0p02_MINIAOD-230b6435bde4f6030b269a9cb8e2b63c/USER',
+                      nEvt = 249748 ) ## 250 k
+
+
 
 # ## ttH
 # H2Mu_ttH = sample( name = 'H2Mu_ttH',
 #                    DAS  = '',
 #                    nEvt = )
+
+
 
 Signal = []  ## All H2Mu signal samples
 Signal.append(H2Mu_gg)
@@ -310,6 +339,14 @@ ZJets_MG_HT_2500_inf = sample( name = 'ZJets_MG_HT_2500_inf',
                                nEvt = 999,
                                files = [ AWB_dir+ZJets_MG_HT_2500_inf_dir+'308C289B-B8C0-E611-A7C6-0025905A606A.root' ],
                                )
+
+#2017
+DYJets_Summer17 = sample ( DAS = '/DYToLL_M_1_TuneCUETP8M1_13TeV_pythia8/RunIISummer17MiniAOD-NZSFlatPU28to62_92X_upgrade2017_realistic_v10-v1/MINIAODSIM',
+                           name = 'DYJets_Summer17_test',
+                           nEvt = 100,
+                           files = ['/store/mc/RunIISummer17MiniAOD/DYJetsToLL_M-1to10_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/MINIAODSIM/NZSFlatPU28to62_92X_upgrade2017_realistic_v10-v1/150000/0C47901E-B8AC-E711-B06F-0025905A48BC.root']
+                           #files = ['/store/mc/RunIISummer17MiniAOD/DYToLL_M_1_TuneCUETP8M1_13TeV_pythia8/MINIAODSIM/NZSFlatPU28to62_92X_upgrade2017_realistic_v10-v1/00000/02FF7F25-D5B3-E711-98E5-003048FFD72C.root'],
+                           )
 
 Background.append(ZJets_MG)
 # Background.append(ZJets_MG_HER)

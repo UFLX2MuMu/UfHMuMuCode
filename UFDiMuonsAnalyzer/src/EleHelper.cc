@@ -44,7 +44,7 @@ void FillEleInfos( EleInfos& _eleInfos,
 
     // Standard quality
     _eleInfo.passConversionVeto = ele.passConversionVeto();
-    _eleInfo.missingInnerHits   = ele.gsfTrack()->hitPattern().numberOfHits(reco::HitPattern::MISSING_INNER_HITS);
+    _eleInfo.missingInnerHits   = ele.gsfTrack()->hitPattern().numberOfAllHits(reco::HitPattern::MISSING_INNER_HITS);
 
     // Standard vertexing
     _eleInfo.d0_PV = ele.gsfTrack()->dxy( primaryVertex.position() );

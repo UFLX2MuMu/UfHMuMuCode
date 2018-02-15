@@ -21,7 +21,8 @@ DiMuons = cms.EDAnalyzer('UFDiMuonsAnalyzer',
                                                  "HLT_Mu50", "HLT_TkMu50"),
 
                          trigResults = cms.InputTag("TriggerResults","","HLT"),
-                         trigObjs    = cms.InputTag("selectedPatTrigger"),
+                         #trigObjs    = cms.InputTag("selectedPatTrigger"),
+                         trigObjs    = cms.InputTag("slimmedPatTrigger","","PAT"),
 
                          ## Event flags
                          evtFlags = cms.InputTag("TriggerResults","","PAT"),
