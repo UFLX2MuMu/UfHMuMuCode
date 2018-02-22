@@ -44,13 +44,9 @@ process.load("Configuration.Geometry.GeometryIdeal_cff")
 
 
 
-#from python.Samples_Moriond17 import Zd150 as samp
+#from python.Samples import Zd150 as samp
 #from python.Samples_Moriond17 import ZdToMuMu_M20_eps0p02_eta2p6 as samp 
-from python.Samples_Moriond17 import DYJets_Summer17 as samp
-#from python.Samples_Moriond17 import H2Mu_gg as samp
-# from python.Samples_Moriond17 import SingleMu_2016C as samp
-# from python.Samples_Moriond17 import ZJets_AMC as samp
-# from python.Samples_Moriond17 import ZJets_MG_HT_2500_inf as samp
+from python.Samples import ZJets_AMC as samp
 
 if samp.isData:
     print '\nRunning over data sample %s' % samp.name

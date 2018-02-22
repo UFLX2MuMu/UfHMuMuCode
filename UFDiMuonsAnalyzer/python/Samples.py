@@ -106,7 +106,6 @@ SingleMu_2017F = sample ( name   = 'SingleMu_2017F',
 
 SingleMu = []  ## All SingleMuon datasets
 
-SingleMu.append(SingleMu_2017A)
 SingleMu.append(SingleMu_2017B)
 SingleMu.append(SingleMu_2017C)
 SingleMu.append(SingleMu_2017D)
@@ -148,7 +147,7 @@ H2Mu_gg = sample( name  = 'H2Mu_gg',
 ## Vector boson fusion
 H2Mu_VBF = sample( name = 'H2Mu_VBF',
                    DAS  = '/VBFH_HToMuMu_M125_13TeV_amcatnloFXFX_pythia8/amarini-Fall17_94X-MINIAODSIM-65c6b29ab922da94b788da955c09b417/USER instance=prod/phys03',
-                   nEvt =  )
+                   nEvt = -1 )
 
 #H2Mu_VBF_120 = sample( name = 'H2Mu_VBF_120',
 #                       DAS  = '/VBF_HToMuMu_M120_13TeV_powheg_pythia8/'+DAS_era_sig,
