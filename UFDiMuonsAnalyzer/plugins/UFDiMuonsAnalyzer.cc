@@ -366,16 +366,16 @@ void UFDiMuonsAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup&
       return;
 
   // Throw away events without a high-mass pair
-  bool hasHighMass = false;
-  for (int iPair = 0; iPair < _nMuPairs; iPair++) {
-    if ( _muPairInfos.at(iPair).mass > 100              || _muPairInfos.at(iPair).mass_PF > 100          || 
-	 _muPairInfos.at(iPair).mass_trk > 100          || _muPairInfos.at(iPair).mass_KaMu > 100        || 
-	 _muPairInfos.at(iPair).mass_KaMu_clos_up > 100 || _muPairInfos.at(iPair).mass_KaMu_sys_up > 100 ||
-	 _muPairInfos.at(iPair).mass_Roch > 100         || _muPairInfos.at(iPair).mass_Roch_sys_up > 100  )
-      hasHighMass = true;
-  }
-  if (!hasHighMass)
-    return;
+//  bool hasHighMass = false;
+//  for (int iPair = 0; iPair < _nMuPairs; iPair++) {
+//    if ( _muPairInfos.at(iPair).mass > 100              || _muPairInfos.at(iPair).mass_PF > 100          || 
+//	 _muPairInfos.at(iPair).mass_trk > 100          || _muPairInfos.at(iPair).mass_KaMu > 100        || 
+//	 _muPairInfos.at(iPair).mass_KaMu_clos_up > 100 || _muPairInfos.at(iPair).mass_KaMu_sys_up > 100 ||
+//	 _muPairInfos.at(iPair).mass_Roch > 100         || _muPairInfos.at(iPair).mass_Roch_sys_up > 100  )
+//      hasHighMass = true;
+//  }
+//  if (!hasHighMass)
+//    return;
 
 
   // -----------------------
