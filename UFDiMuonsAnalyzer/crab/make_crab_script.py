@@ -38,7 +38,7 @@ for samp in samps:
         line = line.replace('samp.GT', "'%s'" % samp.GT)
         line = line.replace('samp.files', str(samp.files))
         line = line.replace('samp.JSON', "'%s'" % samp.JSON)
-        line = line.replace('samp.inputDBS','%s', %samp.inputDBS)
+        line = line.replace('samp.inputDBS','%s' %samp.inputDBS)
 
         out_file.write(line)
     
@@ -84,7 +84,7 @@ for samp in samps:
                 line = line.replace('= NUM', '= 5')  ## 5
 
         if 'inputDBS' in line:
-            line = line.replace("= DBS", "= '%s'", %samp.inputDBS)
+            line = line.replace("= DBS", "= '%s'"  % samp.inputDBS)
 
         if 'outputDatasetTag' in line:
             line = line.replace("= 'STR'", "= '%s'" % samp.name)
