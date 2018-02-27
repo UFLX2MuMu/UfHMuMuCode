@@ -84,7 +84,7 @@ for samp in samps:
                 line = line.replace('= NUM', '= 5')  ## 5
 
         if 'inputDBS' in line:
-            line = line.replace("= DBS", "= '%s'"  % samp.inputDBS)
+            line = line.replace("= 'DBS'", "= '%s'"  % samp.inputDBS)
 
         if 'outputDatasetTag' in line:
             line = line.replace("= 'STR'", "= '%s'" % samp.name)
