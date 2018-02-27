@@ -1,6 +1,7 @@
 #! /usr/bin/env python 
 
-from python.Samples_Moriond17 import *
+
+from python.Samples import *
 import time  ## For timestamp on crab jobs
 import os  ## For executable permissions on scripts
 
@@ -8,7 +9,7 @@ samps = []
 
 ## Get the samples you want to make a crab config file for 
 test_run = False
-test_str = '_hiM'
+test_str = '_firstProd2017'
 # samps.extend(SingleMu)
 # samps.extend(Signal)
 # samps.extend(Background)
@@ -37,6 +38,7 @@ for samp in samps:
         line = line.replace('samp.GT', "'%s'" % samp.GT)
         line = line.replace('samp.files', str(samp.files))
         line = line.replace('samp.JSON', "'%s'" % samp.JSON)
+        line = line.replace('samp.inputDBS','%s', %samp.inputDBS)
 
         out_file.write(line)
     
@@ -79,7 +81,10 @@ for samp in samps:
             # elif samp.name == 'ZJets_MG' or ('ZJets_MG' in samp.name and '_B' in samp.name) or samp.name == 'ZZ_4l_AMC':
             #     line = line.replace('= NUM', '= 3')  ## 10-file jobs fail with too much RAM
             else:
-                line = line.replace('= NUM', '= 25')  ## 5
+                line = line.replace('= NUM', '= 5')  ## 5
+
+        if 'inputDBS' in line:
+            line = line.replace("= DBS", "= '%s'", %samp.inputDBS)
 
         if 'outputDatasetTag' in line:
             line = line.replace("= 'STR'", "= '%s'" % samp.name)
@@ -111,6 +116,6 @@ out_file.write('\n')
 # out_file.write('voms-proxy-init --voms cms --valid 168:00\n')
 out_file.write('\n')
 for samp in samps:
-    out_file.write('crab status -d logs/crab_%s_%s\n' % (samp.name, time.strftime('%Y_%m_%d')))
+    out_file.write('crab status -d logs/crab_%s_%s\n' % (samp.name, time.strftime('%Y_%m_%d_%H_%M')))
 out_file.close()
 os.chmod('check_all.sh', 0o744)
