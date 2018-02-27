@@ -1,9 +1,10 @@
 
 class sample:
-    def __init__(self, name='', DAS='', nEvt=0, files=[], GT='94X_mc2017_realistic_v12', 
+    def __init__(self, name='', DAS='', instance='global', nEvt=0, files=[], GT='94X_mc2017_realistic_v12', 
                  JEC='Fall17_17Nov2017_V4_MC', runs=[], JSON=[], isData=False):
         self.name   = name   ## User-assigned dataset name
         self.DAS    = DAS    ## DAS directory
+        self.inputDBS = instance  # to be used in crab in case of private production. config.Data.inputDBS = 'global' or 'phys03'
         self.nEvt   = nEvt   ## Number of events in dataset
         self.files  = files  ## Local files for testing
         self.GT     = GT     ## Global tag
@@ -130,7 +131,8 @@ DAS_era_sig = 'RunIIFall17DRPremix-94X_mc2017_realistic*/MINIAODSIM'
 
 ## Gluon-gluon fusion
 H2Mu_gg = sample( name  = 'H2Mu_gg',
-                  DAS   = '/GluGlu_HToMuMu_M125_13TeV_amcatnloFXFX_pythia8/amarini-Fall17_94X-MINIAODSIM-65c6b29ab922da94b788da955c09b417/USER instance=prod/phys03',
+                  DAS   = '/GluGlu_HToMuMu_M125_13TeV_amcatnloFXFX_pythia8/amarini-Fall17_94X-MINIAODSIM-65c6b29ab922da94b788da955c09b417/USER',
+                  instance = 'phys03',
                   nEvt  = -1
                 )
 
@@ -147,6 +149,7 @@ H2Mu_gg = sample( name  = 'H2Mu_gg',
 ## Vector boson fusion
 H2Mu_VBF = sample( name = 'H2Mu_VBF',
                    DAS  = '/VBFH_HToMuMu_M125_13TeV_amcatnloFXFX_pythia8/amarini-Fall17_94X-MINIAODSIM-65c6b29ab922da94b788da955c09b417/USER instance=prod/phys03',
+                   instance = 'phys03',
                    nEvt = -1 )
 
 #H2Mu_VBF_120 = sample( name = 'H2Mu_VBF_120',
@@ -160,6 +163,7 @@ H2Mu_VBF = sample( name = 'H2Mu_VBF',
 ## WH (+)
 H2Mu_WH_pos = sample( name = 'H2Mu_WH_pos',
                       DAS  = '/WPlusH_HToMuMu_M125_13TeV_powheg_pythia8/amarini-Fall17_94X-MINIAODSIM-65c6b29ab922da94b788da955c09b417/USER instance=prod/phys03',
+                      instance = 'phys03',
                       nEvt = -1 )
 
 #H2Mu_WH_pos_120 = sample( name = 'H2Mu_WH_pos_120',
@@ -173,6 +177,7 @@ H2Mu_WH_pos = sample( name = 'H2Mu_WH_pos',
 ## WH (-)
 H2Mu_WH_neg = sample( name = 'H2Mu_WH_neg',
                       DAS  = '/WMinusH_HToMuMu_M125_13TeV_powheg_pythia8/amarini-Fall17_94X-MINIAODSIM-65c6b29ab922da94b788da955c09b417/USER instance=prod/phys03',
+                      instance = 'phys03',
                       nEvt = -1 )
 
 #H2Mu_WH_neg_120 = sample( name = 'H2Mu_WH_neg_120',
@@ -186,6 +191,7 @@ H2Mu_WH_neg = sample( name = 'H2Mu_WH_neg',
 ## ZH
 H2Mu_ZH = sample( name = 'H2Mu_ZH',
                   DAS  = '/ZH_HToMuMu_M125_13TeV_powheg_pythia8/amarini-Fall17_94X-MINIAODSIM-65c6b29ab922da94b788da955c09b417/USER instance=prod/phys03',
+                  instance = 'phys03',
                   nEvt = 249748 ) ## 250 k
 
 #H2Mu_ZH_120 = sample( name = 'H2Mu_ZH_120',
@@ -200,6 +206,7 @@ H2Mu_ZH = sample( name = 'H2Mu_ZH',
 ## ttH
 H2Mu_ttH = sample( name = 'H2Mu_ttH',
                    DAS  = '/ttH_HToMuMu_M125_13TeV_powheg_pythia8/amarini-Fall17_94X-MINIAODSIM-65c6b29ab922da94b788da955c09b417/USER instance=prod/phys03',
+                   instance = 'phys03',
                    nEvt = -1 )
 
 ###############
