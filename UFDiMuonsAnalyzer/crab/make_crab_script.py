@@ -55,7 +55,7 @@ for samp in samps:
     # crab submission file that uses the above CMSSW analyzer
     for line in in_file:
         if 'requestName' in line:
-            line = line.replace("= 'STR'", "= '%s_%s%s'" % (samp.name, time.strftime('%Y_%m_%d'), test_str) ) 
+            line = line.replace("= 'STR'", "= '%s_%s%s'" % (samp.name, time.strftime('%Y_%m_%d_%H_%M'), test_str) ) 
 
         if 'psetName' in line: 
             line = line.replace("= 'STR'", "= 'analyzers/%s.py'" % samp.name)
