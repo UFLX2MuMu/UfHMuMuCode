@@ -47,6 +47,7 @@ process.load("Configuration.Geometry.GeometryIdeal_cff")
 #from python.Samples import Zd150 as samp
 #from python.Samples_Moriond17 import ZdToMuMu_M20_eps0p02_eta2p6 as samp 
 from python.Samples import ZJets_AMC as samp
+#from python.Samples import SingleMu_2017B as samp
 
 if samp.isData:
     print '\nRunning over data sample %s' % samp.name
@@ -100,8 +101,12 @@ readFiles = cms.untracked.vstring();
 # Get list of files from the sample we loaded
 #readFiles.extend(samp.files);
 
+
+#readFiles.extend(['file:///eos/cms//store/data/Run2017B/SingleMuon/MINIAOD/17Nov2017-v1/70000/E4FB2B00-82D8-E711-9BEB-02163E014410.root'])
+readFiles.extend(['file:///eos/cms/store/mc/RunIIFall17MiniAODv2/WZTo3LNu_3Jets_MLL-50_TuneCP5_13TeV-madgraphMLM-pythia8/MINIAODSIM/PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/00000/369C3391-F858-E811-9895-FA163EA77A9B.root'])
+
 #readFiles.extend(['file:dy_jetsToLL_summer17.root']);
-readFiles.extend(['/store/mc/RunIIFall17MiniAOD/DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8/MINIAODSIM/94X_mc2017_realistic_v10-v1/00000/005DC030-D3F4-E711-889A-02163E01A62D.root']);
+#readFiles.extend(['/store/mc/RunIIFall17MiniAOD/DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8/MINIAODSIM/94X_mc2017_realistic_v10-v1/00000/005DC030-D3F4-E711-889A-02163E01A62D.root']);
 #readFiles.extend(['file:Zd2Mu_M20_test.root']);
 #readFiles.extend(['/store/user/avartak/DarkPhoton/ZdToMuMu-M150-eps0p02_MINIAOD/171125_153031/0000/miniaod_1.root']);
 
