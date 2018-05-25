@@ -22,7 +22,7 @@ DiMuons = cms.EDAnalyzer('UFDiMuonsAnalyzer',
 
                          trigResults = cms.InputTag("TriggerResults","","HLT"),
                          ## trigResults = cms.InputTag("TriggerResults","","HLT2"),  ## For reHLT MC samples
-                         trigObjs    = cms.InputTag("selectedPatTrigger"),
+                         trigObjs    = cms.InputTag("slimmedPatTrigger"),
 
                          ## Event flags
                          evtFlags = cms.InputTag("TriggerResults","","PAT"),

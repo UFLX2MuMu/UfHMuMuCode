@@ -28,11 +28,11 @@ UFDiMuonsAnalyzer::UFDiMuonsAnalyzer(const edm::ParameterSet& iConfig):
   _trigNames    = iConfig.getParameter<std::vector<std::string>>("trigNames");
 
   _trigResultsToken = consumes<edm::TriggerResults>                    (iConfig.getParameter<edm::InputTag>("trigResults"));
-  //_trigObjsToken    = consumes<pat::TriggerObjectStandAloneCollection> (iConfig.getParameter<edm::InputTag>("trigObjs"));
-  _trigObjsToken    = consumes<pat::TriggerObjectStandAloneCollection> (edm::InputTag("slimmedPatTrigger","","PAT"));
+  _trigObjsToken    = consumes<pat::TriggerObjectStandAloneCollection> (iConfig.getParameter<edm::InputTag>("trigObjs"));
+  //_trigObjsToken    = consumes<pat::TriggerObjectStandAloneCollection> (edm::InputTag("slimmedPatTrigger","","PAT"));
 
   // Event flags
-  _evtFlagsToken = consumes<edm::TriggerResults>( edm::InputTag("TriggerResults","","PAT") );
+  _evtFlagsToken = consumes<edm::TriggerResults>(iConfig.getParameter<edm::InputTag>("evtFlags")); // it has to come from the config because data and MC have their flags implemented in different steps (rereco data from RECO and MC from PAT)). // here we need RECO or PAT and not HLT as the content is very differnet. - PB. 25.05.2018
 
   // Underlying event
   _beamSpotToken      = consumes<reco::BeamSpot>        (iConfig.getParameter<edm::InputTag>("beamSpotTag"));
@@ -234,7 +234,7 @@ void UFDiMuonsAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup&
   // "Flag_badMuons", "Flag_duplicateMuons", etc.
   // https://twiki.cern.ch/twiki/bin/view/CMSPublic/ReMiniAOD03Feb2017Notes
   // https://twiki.cern.ch/twiki/bin/viewauth/CMS/MissingETOptionalFiltersRun2#Analysis_Recommendations_for_ana
-  if (_isVerbose) std::cout << "\nAccessing PAT info" << std::endl;
+  if (_isVerbose) std::cout << "\nAccessing trigger info" << std::endl;
   edm::Handle<edm::TriggerResults> evtFlagsHandle;
   iEvent.getByToken(_evtFlagsToken, evtFlagsHandle);
   if (!evtFlagsHandle.isValid()) {
